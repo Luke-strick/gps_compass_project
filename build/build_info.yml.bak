@@ -1,0 +1,4 @@
+west:
+  command: /home/luke/zephyrproject/.venv/bin/west build -b nucleo_l432kc
+  topdir: /home/luke/zephyrproject
+  version: 1.5.0

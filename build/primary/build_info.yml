@@ -1,0 +1,63 @@
+cmake:
+  application:
+    configuration-dir: '/home/luke/zephyrproject/gps_compass'
+    source-dir: '/home/luke/zephyrproject/gps_compass'
+  board:
+    name: 'nucleo_l432kc'
+    path:
+     - '/home/luke/zephyrproject/zephyr/boards/st/nucleo_l432kc'
+    qualifiers: 'stm32l432xx'
+    revision: ''
+  devicetree:
+    bindings-dirs:
+     - '/home/luke/zephyrproject/zephyr/dts/bindings'
+    files:
+     - '/home/luke/zephyrproject/zephyr/boards/st/nucleo_l432kc/nucleo_l432kc.dts'
+     - '/home/luke/zephyrproject/gps_compass/boards/nucleo_l432kc.overlay'
+    include-dirs:
+     - '/home/luke/zephyrproject/modules/hal/ambiq/dts'
+     - '/home/luke/zephyrproject/modules/hal/atmel/include'
+     - '/home/luke/zephyrproject/modules/hal/bouffalolab/include'
+     - '/home/luke/zephyrproject/modules/hal/bouffalolab/include/zephyr'
+     - '/home/luke/zephyrproject/modules/hal/gigadevice/include'
+     - '/home/luke/zephyrproject/modules/hal/microchip/include'
+     - '/home/luke/zephyrproject/modules/hal/microchip/dts'
+     - '/home/luke/zephyrproject/modules/hal/nuvoton/dts'
+     - '/home/luke/zephyrproject/modules/hal/nxp/dts'
+     - '/home/luke/zephyrproject/modules/hal/stm32/dts'
+     - '/home/luke/zephyrproject/modules/hal/ti/dts'
+     - '/home/luke/zephyrproject/zephyr/include'
+     - '/home/luke/zephyrproject/zephyr/include/zephyr'
+     - '/home/luke/zephyrproject/zephyr/dts/common'
+     - '/home/luke/zephyrproject/zephyr/dts/vendor'
+     - '/home/luke/zephyrproject/zephyr/dts/rx'
+     - '/home/luke/zephyrproject/zephyr/dts/x86'
+     - '/home/luke/zephyrproject/zephyr/dts/xtensa'
+     - '/home/luke/zephyrproject/zephyr/dts/sparc'
+     - '/home/luke/zephyrproject/zephyr/dts/riscv'
+     - '/home/luke/zephyrproject/zephyr/dts/posix'
+     - '/home/luke/zephyrproject/zephyr/dts/arm64'
+     - '/home/luke/zephyrproject/zephyr/dts/arm'
+     - '/home/luke/zephyrproject/zephyr/dts/arc'
+     - '/home/luke/zephyrproject/zephyr/dts'
+    user-files:
+     - '/home/luke/zephyrproject/gps_compass/boards/nucleo_l432kc.overlay'
+  kconfig:
+    files:
+     - '/home/luke/zephyrproject/zephyr/boards/st/nucleo_l432kc/nucleo_l432kc_defconfig'
+     - '/home/luke/zephyrproject/gps_compass/prj.conf'
+     - '/home/luke/zephyrproject/gps_compass/boards/nucleo_l432kc.conf'
+    user-files:
+     - '/home/luke/zephyrproject/gps_compass/prj.conf'
+     - '/home/luke/zephyrproject/gps_compass/boards/nucleo_l432kc.conf'
+  toolchain:
+    name: 'zephyr'
+    path: '/home/luke/zephyr-sdk-0.17.4'
+  zephyr:
+    version: '4.3.99'
+    zephyr-base: '/home/luke/zephyrproject/zephyr'
+version: '0.1.0'
+west:
+  command: '/home/luke/.zinstaller/.venv/bin/west build -p always --board nucleo_l432kc --build-dir /home/luke/zephyrproject/gps_compass/build/primary'
+  topdir: '/home/luke/zephyrproject'
+  version: '1.5.0'

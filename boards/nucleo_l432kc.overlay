@@ -1,0 +1,62 @@
+/ {
+	aliases {
+		gnss = &gnss;
+        gps-usart = &usart1;
+
+        // ht1621-cs = &ht1621_cs_pin;
+        // ht1621-wr = &ht1621_wr_pin;
+        // ht1621-data = &ht1621_data_pin;
+	};
+};
+/ {
+    aliases {
+        ht1621-cs = &ht1621_cs_gpio;
+        ht1621-wr = &ht1621_wr_gpio;
+        ht1621-data = &ht1621_data_gpio;
+    };
+
+    ht1621_gpios {
+        compatible = "gpio-leds";
+        ht1621_cs_gpio: ht1621_cs {
+            gpios = <&gpioa 6 GPIO_ACTIVE_HIGH>;
+        };
+        ht1621_wr_gpio: ht1621_wr {
+            gpios = <&gpioa 5 GPIO_ACTIVE_HIGH>;
+        };
+        ht1621_data_gpio: ht1621_data {
+            gpios = <&gpioa 4 GPIO_ACTIVE_HIGH>;
+        };
+    };
+};
+
+&usart1 { 
+    pinctrl-0 = <&usart1_tx_pa9 &usart1_rx_pa10>; 
+    pinctrl-names = "default"; 
+    current-speed = <9600>; 
+    status = "okay";
+    gnss: gnss {
+        compatible = "gnss-nmea-generic";
+        status = "okay";
+
+    };
+};
+
+
+&i2c1 {
+	status = "okay";
+	clock-frequency = <I2C_BITRATE_FAST>;
+	pinctrl-0 = <&i2c1_scl_pb6 &i2c1_sda_pb7>;
+	pinctrl-names = "default";
+	
+	mpu6050: mpu6050@68 {
+		compatible = "invensense,mpu6050";
+		reg = <0x68>;
+		status = "okay";
+	};
+	
+    hmc5883l: hmc5883l@0d {
+        compatible = "honeywell,hmc5883l";
+        reg = <0x0d>;
+        status = "okay";
+    };
+};

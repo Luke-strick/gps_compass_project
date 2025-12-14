@@ -1,0 +1,5 @@
+west:
+  command: /home/luke/.zinstaller/.venv/bin/west build -p always --board nucleo_l432kc
+    --build-dir /home/luke/zephyrproject/gps_compass/build/primary
+  topdir: /home/luke/zephyrproject
+  version: 1.5.0
